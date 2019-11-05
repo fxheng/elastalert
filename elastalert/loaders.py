@@ -9,6 +9,7 @@ import sys
 import jsonschema
 import yaml
 import yaml.scanner
+from yamlinclude import YamlIncludeConstructor
 from staticconf.loader import yaml_loader
 
 from . import alerts
@@ -26,6 +27,7 @@ from .util import ts_to_dt_with_format
 from .util import unix_to_dt
 from .util import unixms_to_dt
 
+YamlIncludeConstructor.add_to_loader_class(loader_class=yaml.FullLoader, base_dir='/')
 
 class RulesLoader(object):
     # import rule dependency
