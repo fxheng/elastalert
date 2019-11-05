@@ -92,6 +92,7 @@ class RulesLoader(object):
 
     def __init__(self, conf):
         # schema for rule yaml
+        YamlIncludeConstructor.add_to_loader_class(loader_class=yaml.FullLoader, base_dir='/')
         self.rule_schema = jsonschema.Draft7Validator(
             yaml.load(open(os.path.join(os.path.dirname(__file__), 'schema.yaml')), Loader=yaml.FullLoader))
 
